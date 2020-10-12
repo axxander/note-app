@@ -1,0 +1,56 @@
+notify (new|read|del) (-a)? (-v)? name directory? 
+
+
+Master validation:
+	notify\s(new|read|del)(\s-a(\s-v)?)?\s([a-zA-Z0-9._-]+)\s([a-zA-Z0-9._-]+)?
+
+New validation:
+	new\s
+
+
+
+New 
+---
+
+#1 open file in general directory:
+	notify new file
+#2 open file in directory:
+	notify new file directory
+#3 record audio and write to file in general directory
+	notify new -a file
+#4 record audio and write to file in directory
+	notify new -a file directory
+#5 record audio and write to file in general directory and open sublime showing dictated note
+	notify new -a -v file
+#6 record audio and write to file in directory and open sublime showing dictated note
+	notify new -a -v file directory
+
+
+Read
+----
+
+#1 opens file in general directory in sublime
+	notify read file
+#2 opens file in directory in sublime
+	notify read file directory
+#3 plays contents of file in general directory
+	notify read -a file
+#4 plays contents of file in directory
+	notify read -a file directory
+#5 plays contents of file in general directory and opens in sublime
+	notify read -a -v file
+#6 plays contents of file in directory and opens in sublime
+	notfiy read -a -v file directory
+
+
+Del
+---
+#1 delete file in general directory
+	notify del file
+#2 delete file in directory
+	notify del file directory
+
+
+
+
+
