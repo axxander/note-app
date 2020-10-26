@@ -1,3 +1,6 @@
 __pycache__
 regex*
 sandbox.py
+.mypy_cache
+venv
+
