@@ -1,1 +1,1 @@
-this is a test file in the test directory
+This is a test note.
