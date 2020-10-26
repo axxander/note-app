@@ -1,19 +1,19 @@
 import os
 import re
 
-### Regular Expressions
+class Constants:
+	"""Regular expressions and common file paths used by Noted.
 
-# validate command line arguments
-master_pattern = re.compile(r"(new|read|del)\s?(-a)?\s?(-v)?\s([a-zA-Z0-9._-]+)\s?([a-zA-Z0-9/._-]+)?")
+	"""
+	# regex pattern for validating command line arguments
+	master_pattern = re.compile(r"(new|read|del)\s?(-a)?\s?(-v)?\s([a-zA-Z0-9._-]+)\s?([a-zA-Z0-9/._-]+)?")
 
-# relative file paths
-regex_rel_path = re.compile(r"Notes\/[a-zA-Z0-9/._-]+")
+	# regex pattern for extracting relative file path
+	# e.g. Notes/foo/bar.txt --> /foo/bar.txt
+	relative_file_path = re.compile(r"Notes\/[a-zA-Z0-9/._-]+")
 
+	# Notes directory (directory all entries are stored)
+	notes_dir = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'Notes'))
 
-### Frequently used paths
-
-# notes directory
-notes_dir = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'Notes'))
-
-# audio response directory
-response_dir = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'noted', 'response'))
+	# the directory audio responses are stored
+	response_dir = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', 'noted', 'response'))
