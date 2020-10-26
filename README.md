@@ -77,7 +77,7 @@ noted del . Shopping
 ```
 
 ## Tests
-The unit tests currently only cover the regular expression for handelling the command line interface.
+The unit tests currently only cover the regular expression for handling the command line interface.
 
 ## Roadmap
 There is currently no plan for additional features.
