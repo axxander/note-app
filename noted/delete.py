@@ -1,4 +1,4 @@
-import constants
+from constants import Constants
 import sys
 import os
 from typing import Optional
@@ -40,8 +40,8 @@ def delete_file(filename: str, directory: str = "General") -> None:
 		None
 
 	"""
-	file_path = os.path.join(constants.notes_dir, directory, filename)  # absolute path to note file
-	rel_file_path =  re.search(constants.regex_rel_path, file_path).group()  # relative path to not file
+	file_path = os.path.join(Constants.notes_dir, directory, filename)  # absolute path to note file
+	rel_file_path =  re.search(Constants.relative_file_path, file_path).group()  # relative path to not file
 
 	try:  # file exists
 		os.remove(file_path)
@@ -60,8 +60,8 @@ def delete_directory(directory: str = "General") -> None:
 		None
 
 	"""
-	dir_path = os.path.join(constants.notes_dir, directory)  # absolute path to note dir
-	rel_dir_path =  re.search(constants.regex_rel_path, dir_path).group()  # relative path to note dir
+	dir_path = os.path.join(Constants.notes_dir, directory)  # absolute path to note dir
+	rel_dir_path =  re.search(Constants.relative_file_path, dir_path).group()  # relative path to note dir
 
 	query = f"Are you sure you want to delete '{rel_dir_path}' directory? (y/n) "  # user confirmation
 	q = input(query)

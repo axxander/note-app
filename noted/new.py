@@ -1,7 +1,7 @@
 import speech_recognition as sr
 from typing import Optional
 import os
-import constants
+from constants import Constants
 import sys
 import re
 
@@ -25,7 +25,7 @@ def _new_helper(audio_flag: Optional[str], verbose_flag: Optional[str], filename
 		directory = "General"
 
 	# make directory if it does not exist
-	dir_path = os.path.join(constants.notes_dir, directory)
+	dir_path = os.path.join(Constants.notes_dir, directory)
 	if not os.path.isdir(dir_path):
 		os.makedirs(dir_path)
 
@@ -42,7 +42,7 @@ def _new_helper(audio_flag: Optional[str], verbose_flag: Optional[str], filename
 				os.system("subl " + file_path)	
 	else:  # overwriting not allowed
 		print(file_path)
-		rel_file_path =  re.search(constants.regex_rel_path, file_path).group()
+		rel_file_path =  re.search(Constants.relative_file_path, file_path).group()
 		sys.exit(f"Note '{rel_file_path}' already exists.")
 
 

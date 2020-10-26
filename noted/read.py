@@ -1,6 +1,6 @@
 import sys
 import os
-import constants
+from constants import Constants
 from typing import Optional
 import re
 import playsound
@@ -23,8 +23,8 @@ def _read_helper(audio_flag: Optional[str], verbose_flag: Optional[str], filenam
 	if not directory:
 		directory = "General"
 
-	file_path = os.path.join(constants.notes_dir, directory, filename)
-	rel_file_path =  re.search(constants.regex_rel_path, file_path).group()
+	file_path = os.path.join(Constants.notes_dir, directory, filename)
+	rel_file_path =  re.search(Constants.relative_file_path, file_path).group()
 	if os.path.isfile(file_path):
 		if not audio_flag:
 			os.system("subl " + file_path)
@@ -54,7 +54,7 @@ def response(text: str) -> None:
 	except:
 		sys.exit("Sorry, my speak function is not currently functioning.")
 
-	f_audio = os.path.join(constants.response_dir, "response.mp3")
+	f_audio = os.path.join(Constants.response_dir, "response.mp3")
 	tts.save(f_audio)  # save audio file
 
 	playsound.playsound(f_audio)  # play sound
